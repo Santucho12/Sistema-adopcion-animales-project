@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-///
+
+///definir los atributos y constructor de la clase
 namespace data.models
 {
     public class Mascota
@@ -19,7 +16,18 @@ namespace data.models
         public string estadoAdopcion { get; set; }
         public DateTime fechaLlegada { get; set; }
 
-        // constructorr
+        public Mascota()
+        {
+            // constructor vacio
+        }
+
+        public override string ToString()
+        {
+            return $"ID: {id}, Nombre: {nombre}, Especie: {especie}, Raza: {raza}, Edad: {edad}, Sexo: {sexo}, Descripción: {descripcion}, Estado de Adopción: {estadoAdopcion}, Fecha de Llegada: {fechaLlegada.ToShortDateString()}";
+        }
+
+
+        // constructorr con parametros
         public Mascota(int id, string nombre, string especie, string raza, int edad, string sexo, string descripcion, string estadoAdopcion, DateTime fechaLlegada)
         {
             this.id = id;
@@ -31,15 +39,6 @@ namespace data.models
             this.descripcion = descripcion;
             this.estadoAdopcion = estadoAdopcion;
             this.fechaLlegada = fechaLlegada;
-        }
-        public Mascota()
-        {
-            // Constructor por defecto
-        }
-
-        public override string ToString()
-        {
-            return $"ID: {id}, Nombre: {nombre}, Especie: {especie}, Raza: {raza}, Edad: {edad}, Sexo: {sexo}, Descripción: {descripcion}, Estado de Adopción: {estadoAdopcion}, Fecha de Llegada: {fechaLlegada.ToShortDateString()}";
         }
     }
 }

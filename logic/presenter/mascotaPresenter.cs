@@ -1,35 +1,32 @@
 ﻿using System;
 using System.Collections.Generic;
+//importo estos modulos ya que los tiene que conocer logic
 using data.models;
 using data.repositories;
 
+//se encarga de conectar la logica de data con la interfaz de view
 namespace logic.presenter
 {
     public class MascotaPresenter
-    {
-        private readonly RepositorioMascota repositorio;
+    {           //creo un atributo de tipo repositoriomascota
+        private  RepositorioMascota repoMascota;
 
+        //constructor
         public MascotaPresenter()
-        {
-            repositorio = new RepositorioMascota();
+        {       //lo inicializo en el constructor
+            repoMascota = new RepositorioMascota();
         }
 
         // Listar todas las mascotas
         public List<Mascota> ObtenerMascotas()
-        {
-            return repositorio.listarMascotas();
+        {       //invocta al metodo listarMascotas de repositorio
+            return repoMascota.listarMascotas();
         }
 
-        // Agregar nueva mascota con validación
+        // Agregar nueva mascota 
         public void AgregarMascota(Mascota nuevaMascota)
-        {
-            if (nuevaMascota == null)
-                throw new ArgumentNullException(nameof(nuevaMascota), "La mascota no puede ser nula.");
-
-            if (string.IsNullOrWhiteSpace(nuevaMascota.nombre))
-                throw new ArgumentException("El nombre de la mascota es obligatorio.");
-
-            repositorio.agregarMascota(nuevaMascota);
+        {   //invoca al metodoto del repo
+            repoMascota.agregarMascota(nuevaMascota);
         }
 
         // Modificar mascota existente
@@ -38,25 +35,20 @@ namespace logic.presenter
             if (mascota == null || mascota.id <= 0)
                 throw new ArgumentException("La mascota debe tener un ID válido.");
 
-            repositorio.modificarMascota(mascota);
+            repoMascota.modificarMascota(mascota);
         }
 
         // Eliminar mascota por ID
         public void EliminarMascota(int id)
-        {
-            if (id <= 0)
-                throw new ArgumentException("El ID debe ser mayor a cero.");
-
-            repositorio.eliminarMascota(id);
+        {       //invoca del repo
+            repoMascota.eliminarMascota(id);
         }
 
         // Buscar mascota por ID
         public Mascota BuscarMascotaPorId(int id)
         {
-            if (id <= 0)
-                throw new ArgumentException("El ID debe ser mayor a cero.");
-
-            return repositorio.buscarPorId(id);
+            //invoca del repo
+            return repoMascota.buscarPorId(id);
         }
     }
 }
