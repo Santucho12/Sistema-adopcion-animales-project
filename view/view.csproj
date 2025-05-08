@@ -46,6 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="buscarMascotaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="buscarMascotaForm.Designer.cs">
+      <DependentUpon>buscarMascotaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="agregarMascotaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="agregarMascotaForm.Designer.cs">
+      <DependentUpon>agregarMascotaForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="mascotaForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -54,6 +66,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="agregarMascotaForm.resx">
+      <DependentUpon>agregarMascotaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="buscarMascotaForm.resx">
+      <DependentUpon>buscarMascotaForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="mascotaForm.resx">
       <DependentUpon>mascotaForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -75,9 +93,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\data\data.csproj">

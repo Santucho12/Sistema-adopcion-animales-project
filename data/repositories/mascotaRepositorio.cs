@@ -21,6 +21,7 @@ namespace data.repositories
                 while (datos.Lector.Read())
                 {
                     Mascota aux = new Mascota();
+                    aux.id = (int)datos.Lector["Id"];
                     aux.nombre = (string)datos.Lector["nombre"];
                     aux.especie = (string)datos.Lector["especie"];
                     aux.raza = (string)datos.Lector["raza"];
