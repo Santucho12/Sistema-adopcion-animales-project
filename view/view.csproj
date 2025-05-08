@@ -64,6 +64,12 @@
     <Compile Include="eliminarMascotaForm.Designer.cs">
       <DependentUpon>eliminarMascotaForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="modificarMascotaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modificarMascotaForm.Designer.cs">
+      <DependentUpon>modificarMascotaForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="mascotaForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,6 +86,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="eliminarMascotaForm.resx">
       <DependentUpon>eliminarMascotaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modificarMascotaForm.resx">
+      <DependentUpon>modificarMascotaForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="mascotaForm.resx">
       <DependentUpon>mascotaForm.cs</DependentUpon>

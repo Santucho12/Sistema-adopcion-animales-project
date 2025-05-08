@@ -29,14 +29,13 @@ namespace logic.presenter
             repoMascota.AgregarMascota(nuevaMascota);
         }
 
-        // Agregar mascota existente
-        public void agregarMascota(Mascota mascota)
-        {
-            if (mascota == null || mascota.id <= 0)
-                throw new ArgumentException("La mascota debe tener un ID válido.");
-
-            repoMascota.AgregarMascota(mascota);
+        // modificar nueva mascota 
+        public void ModificarMascota(Mascota nuevaMascota)
+        {   //invoca al metodoto del repo
+            repoMascota.modificarMascota(nuevaMascota);
         }
+
+
 
         // Eliminar mascota por ID
         public void EliminarMascota(int id)

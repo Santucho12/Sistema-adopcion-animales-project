@@ -33,6 +33,7 @@
             this.buttonBuscar = new System.Windows.Forms.Button();
             this.buttonAgregar = new System.Windows.Forms.Button();
             this.buttonEliminar = new System.Windows.Forms.Button();
+            this.buttonModificarForm = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMascotas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -89,11 +90,23 @@
             this.buttonEliminar.UseVisualStyleBackColor = true;
             this.buttonEliminar.Click += new System.EventHandler(this.buttonEliminar_Click);
             // 
+            // buttonModificarForm
+            // 
+            this.buttonModificarForm.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.8F);
+            this.buttonModificarForm.Location = new System.Drawing.Point(1436, 53);
+            this.buttonModificarForm.Name = "buttonModificarForm";
+            this.buttonModificarForm.Size = new System.Drawing.Size(122, 44);
+            this.buttonModificarForm.TabIndex = 7;
+            this.buttonModificarForm.Text = "Modificar";
+            this.buttonModificarForm.UseVisualStyleBackColor = true;
+            this.buttonModificarForm.Click += new System.EventHandler(this.buttonModificarForm_Click);
+            // 
             // mascotaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1818, 633);
+            this.Controls.Add(this.buttonModificarForm);
             this.Controls.Add(this.buttonAgregar);
             this.Controls.Add(this.buttonEliminar);
             this.Controls.Add(this.buttonBuscar);
@@ -117,6 +130,7 @@
         private System.Windows.Forms.Button buttonBuscar;
         private System.Windows.Forms.Button buttonAgregar;
         private System.Windows.Forms.Button buttonEliminar;
+        private System.Windows.Forms.Button buttonModificarForm;
     }
 }
 

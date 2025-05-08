@@ -76,6 +76,37 @@ namespace data.repositories
             }
         }
 
+
+        public void modificarMascota(Mascota nueva)
+        {
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.setearConsulta("UPDATE Mascotas SET nombre=@nombre, especie=@especie, raza=@raza, edad=@edad, sexo=@sexo, descripcion=@descripcion, estadoAdopcion=@estadoAdopcion, fechaLlegada=@fechaLlegada WHERE id=@id");
+
+                datos.comando.Parameters.AddWithValue("@id", nueva.id);
+                datos.comando.Parameters.AddWithValue("@nombre", nueva.nombre);
+                datos.comando.Parameters.AddWithValue("@especie", nueva.especie);
+                datos.comando.Parameters.AddWithValue("@raza", nueva.raza);
+                datos.comando.Parameters.AddWithValue("@edad", nueva.edad);
+                datos.comando.Parameters.AddWithValue("@sexo", nueva.sexo);
+                datos.comando.Parameters.AddWithValue("@descripcion", nueva.descripcion);
+                datos.comando.Parameters.AddWithValue("@estadoAdopcion", nueva.estadoAdopcion);
+                datos.comando.Parameters.AddWithValue("@fechaLlegada", nueva.fechaLlegada);
+
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
         public void eliminarMascota(int id)
         {
             AccesoDatos datos = new AccesoDatos();

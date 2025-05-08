@@ -3,37 +3,37 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using logic.presenter;
 using data.models;
-using System.Drawing;
 
 namespace view
 {
     public partial class mascotaForm : Form
-    {       //atributo de presenter
+    {
+        // Atributo de presenter
         private MascotaPresenter presenter;
 
-        //constructor
+        // Constructor
         public mascotaForm()
-        {   //ejecuta el codigo del designer
+        {
+            // Ejecuta el código del diseñador
             InitializeComponent();
             // Inicializar el presenter
             presenter = new MascotaPresenter();
         }
 
         private void mascotaForm_Load(object sender, EventArgs e)
-        {//a la lista mascotas le asigna el metodo de presenter obtener mascotas proveniente del repo(listarMascotas)
+        {
+            // A la lista de mascotas le asigna el método de presenter obtener mascotas proveniente del repo (listarMascotas)
             List<Mascota> mascotas = presenter.ObtenerMascotas();
-            //le asigna al dgv  la lista de mascotas de arriba
+            // Le asigna al dgv la lista de mascotas de arriba
             dgvMascotas.DataSource = mascotas;
             dgvMascotas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }
-
-
 
         private void buttonBuscar_Click(object sender, EventArgs e)
         {
             // Crear y mostrar el formulario de búsqueda
             buscarMascotaForm buscarMascota = new buscarMascotaForm();
-            
+
             // Mostrar el formulario y esperar a que el usuario lo cierre
             if (buscarMascota.ShowDialog() == DialogResult.OK)  // Verificamos si el formulario se cerró correctamente
             {
@@ -62,13 +62,6 @@ namespace view
             }
         }
 
-
-
-
-       
-
-       
-
         private void buttonAgregar_Click(object sender, EventArgs e)
         {
             agregarMascotaForm agregarMascota = new agregarMascotaForm();
@@ -83,8 +76,6 @@ namespace view
             agregarMascota.ShowDialog();
         }
 
-       
-
         private void buttonEliminar_Click(object sender, EventArgs e)
         {
             eliminarMascotaForm eliminarMascota = new eliminarMascotaForm();
@@ -97,6 +88,38 @@ namespace view
 
             eliminarMascota.ShowDialog();
         }
-    }
 
+        private void buttonModificarForm_Click(object sender, EventArgs e)
+        {
+            // Asegúrate de que se haya seleccionado una fila en el DataGridView
+            if (dgvMascotas.SelectedRows.Count > 0)
+            {
+                // Obtener el ID de la mascota seleccionada (suponiendo que el ID está en la primera columna)
+                int mascotaId = Convert.ToInt32(dgvMascotas.SelectedRows[0].Cells[0].Value);
+                MessageBox.Show("ID seleccionado: " + mascotaId.ToString());  // Depuración: Verificamos el ID
+
+                // Crear una instancia del formulario de modificación
+                modificarMascotaForm modificarMascota = new modificarMascotaForm();
+
+                // Pasamos el ID de la mascota a modificar
+                modificarMascota.mascotaId = mascotaId;
+
+                // Manejar el evento FormClosed para actualizar el DataGridView después de cerrar el formulario
+                modificarMascota.FormClosed += (s, args) =>
+                {
+                    // Actualizar el DataGridView con las mascotas modificadas
+                    dgvMascotas.DataSource = null;  // Limpiar la fuente de datos
+                    dgvMascotas.DataSource = presenter.ObtenerMascotas();  // Volver a cargar los datos
+                };
+
+                // Mostrar el formulario de modificación
+                modificarMascota.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Por favor, selecciona la flecha al lado del ID de una mascota para modificar.");
+            }
+        }
+
+    }
 }
