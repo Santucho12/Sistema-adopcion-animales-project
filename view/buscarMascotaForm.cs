@@ -18,17 +18,11 @@ namespace view
             InitializeComponent();
         }
 
-        private void buttonBuscarMascotaForm_Click(object sender, EventArgs e)
+        private void buttonBuscarMascotaForm_Click_1(object sender, EventArgs e)
         {
             IdIngresado = textBoxBuscarMascotaForm.Text;  // Guardás el valor
             this.DialogResult = DialogResult.OK; // Indicás que todo fue correcto
             this.Close(); // Cerrás el formulario
-
-        }
-
-        private void buttonBuscarMascotaForm_Click_1(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -65,11 +65,15 @@ namespace view
 
 
 
+       
+
+       
+
         private void buttonAgregar_Click(object sender, EventArgs e)
         {
             agregarMascotaForm agregarMascota = new agregarMascotaForm();
 
-            // Actualiza el DataGridView cuando se cierre el formulario de agregar
+            // Actualiza el DataGridView cuando se cierre el formulario de Agregar
             agregarMascota.FormClosed += (s, args) =>
             {
                 dgvMascotas.DataSource = null;
@@ -79,8 +83,20 @@ namespace view
             agregarMascota.ShowDialog();
         }
 
+       
 
+        private void buttonEliminar_Click(object sender, EventArgs e)
+        {
+            eliminarMascotaForm eliminarMascota = new eliminarMascotaForm();
 
+            eliminarMascota.FormClosed += (s, args) =>
+            {
+                dgvMascotas.DataSource = null;
+                dgvMascotas.DataSource = presenter.ObtenerMascotas();
+            };
+
+            eliminarMascota.ShowDialog();
+        }
     }
 
 }

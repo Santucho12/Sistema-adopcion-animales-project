@@ -256,7 +256,7 @@
             this.Controls.Add(this.labelAgregarNombre);
             this.Controls.Add(this.labelAgregarTitulo);
             this.Name = "agregarMascotaForm";
-            this.Text = "agregarMascotaForm";
+            this.Text = "Agregar mascota";
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAgregarEdad)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

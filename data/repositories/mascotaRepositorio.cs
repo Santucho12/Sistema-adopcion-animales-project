@@ -46,7 +46,7 @@ namespace data.repositories
             return listaMascotas;
         }
 
-        public void agregarMascota(Mascota nueva)
+        public void AgregarMascota(Mascota nueva)
         {
             AccesoDatos datos = new AccesoDatos();
 
@@ -63,37 +63,6 @@ namespace data.repositories
                 datos.comando.Parameters.AddWithValue("@descripcion", nueva.descripcion);
                 datos.comando.Parameters.AddWithValue("@estadoAdopcion", nueva.estadoAdopcion);
                 datos.comando.Parameters.AddWithValue("@fechaLlegada", nueva.fechaLlegada);
-
-                datos.ejecutarAccion();
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-            finally
-            {
-                datos.cerrarConexion();
-            }
-        }
-
-        public void modificarMascota(Mascota mascota)
-        {
-            AccesoDatos datos = new AccesoDatos();
-
-            try
-            {
-                datos.setearConsulta("UPDATE Mascotas SET nombre=@nombre, especie=@especie, raza=@raza, edad=@edad, sexo=@sexo, " +
-                                     "descripcion=@descripcion, estadoAdopcion=@estadoAdopcion, fechaLlegada=@fechaLlegada WHERE id=@id");
-
-                datos.comando.Parameters.AddWithValue("@id", mascota.id);
-                datos.comando.Parameters.AddWithValue("@nombre", mascota.nombre);
-                datos.comando.Parameters.AddWithValue("@especie", mascota.especie);
-                datos.comando.Parameters.AddWithValue("@raza", mascota.raza);
-                datos.comando.Parameters.AddWithValue("@edad", mascota.edad);
-                datos.comando.Parameters.AddWithValue("@sexo", mascota.sexo);
-                datos.comando.Parameters.AddWithValue("@descripcion", mascota.descripcion);
-                datos.comando.Parameters.AddWithValue("@estadoAdopcion", mascota.estadoAdopcion);
-                datos.comando.Parameters.AddWithValue("@fechaLlegada", mascota.fechaLlegada);
 
                 datos.ejecutarAccion();
             }

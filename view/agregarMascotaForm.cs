@@ -45,7 +45,7 @@ namespace view
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al agregar mascota: " + ex.Message);
+                MessageBox.Show("Error al Agregar mascota: " + ex.Message);
             }
         }
     }

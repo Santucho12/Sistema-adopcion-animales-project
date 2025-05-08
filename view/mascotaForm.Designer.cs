@@ -23,16 +23,15 @@
         #region Código generado por el Diseñador de Windows Forms
 
         /// <summary>
-        /// Método necesario para admitir el Diseñador. No se puede modificar
+        /// Método necesario para admitir el Diseñador. No se puede Agregar
         /// el contenido de este método con el editor de código.
         /// </summary>
         private void InitializeComponent()
         {
             this.dgvMascotas = new System.Windows.Forms.DataGridView();
             this.labelTitulo = new System.Windows.Forms.Label();
-            this.buttonAgregar = new System.Windows.Forms.Button();
             this.buttonBuscar = new System.Windows.Forms.Button();
-            this.buttonModificar = new System.Windows.Forms.Button();
+            this.buttonAgregar = new System.Windows.Forms.Button();
             this.buttonEliminar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMascotas)).BeginInit();
             this.SuspendLayout();
@@ -57,17 +56,6 @@
             this.labelTitulo.TabIndex = 1;
             this.labelTitulo.Text = "Datos de las mascotas";
             // 
-            // buttonAgregar
-            // 
-            this.buttonAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.8F);
-            this.buttonAgregar.Location = new System.Drawing.Point(384, 53);
-            this.buttonAgregar.Name = "buttonAgregar";
-            this.buttonAgregar.Size = new System.Drawing.Size(106, 44);
-            this.buttonAgregar.TabIndex = 2;
-            this.buttonAgregar.Text = "Agregar";
-            this.buttonAgregar.UseVisualStyleBackColor = true;
-            this.buttonAgregar.Click += new System.EventHandler(this.buttonAgregar_Click);
-            // 
             // buttonBuscar
             // 
             this.buttonBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.8F);
@@ -79,15 +67,16 @@
             this.buttonBuscar.UseVisualStyleBackColor = true;
             this.buttonBuscar.Click += new System.EventHandler(this.buttonBuscar_Click);
             // 
-            // buttonModificar
+            // buttonAgregar
             // 
-            this.buttonModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.8F);
-            this.buttonModificar.Location = new System.Drawing.Point(1388, 53);
-            this.buttonModificar.Name = "buttonModificar";
-            this.buttonModificar.Size = new System.Drawing.Size(106, 44);
-            this.buttonModificar.TabIndex = 4;
-            this.buttonModificar.Text = "Modificar";
-            this.buttonModificar.UseVisualStyleBackColor = true;
+            this.buttonAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.8F);
+            this.buttonAgregar.Location = new System.Drawing.Point(368, 53);
+            this.buttonAgregar.Name = "buttonAgregar";
+            this.buttonAgregar.Size = new System.Drawing.Size(106, 44);
+            this.buttonAgregar.TabIndex = 6;
+            this.buttonAgregar.Text = "Agregar";
+            this.buttonAgregar.UseVisualStyleBackColor = true;
+            this.buttonAgregar.Click += new System.EventHandler(this.buttonAgregar_Click);
             // 
             // buttonEliminar
             // 
@@ -98,16 +87,16 @@
             this.buttonEliminar.TabIndex = 5;
             this.buttonEliminar.Text = "Eliminar";
             this.buttonEliminar.UseVisualStyleBackColor = true;
+            this.buttonEliminar.Click += new System.EventHandler(this.buttonEliminar_Click);
             // 
             // mascotaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1818, 633);
-            this.Controls.Add(this.buttonEliminar);
-            this.Controls.Add(this.buttonModificar);
-            this.Controls.Add(this.buttonBuscar);
             this.Controls.Add(this.buttonAgregar);
+            this.Controls.Add(this.buttonEliminar);
+            this.Controls.Add(this.buttonBuscar);
             this.Controls.Add(this.labelTitulo);
             this.Controls.Add(this.dgvMascotas);
             this.MinimizeBox = false;
@@ -125,9 +114,8 @@
 
         private System.Windows.Forms.DataGridView dgvMascotas;
         private System.Windows.Forms.Label labelTitulo;
-        private System.Windows.Forms.Button buttonAgregar;
         private System.Windows.Forms.Button buttonBuscar;
-        private System.Windows.Forms.Button buttonModificar;
+        private System.Windows.Forms.Button buttonAgregar;
         private System.Windows.Forms.Button buttonEliminar;
     }
 }
