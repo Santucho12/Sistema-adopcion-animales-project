@@ -39,19 +39,22 @@
             // 
             // dgvMascotas
             // 
+            this.dgvMascotas.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvMascotas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMascotas.Location = new System.Drawing.Point(27, 128);
+            this.dgvMascotas.Location = new System.Drawing.Point(-2, 240);
             this.dgvMascotas.Name = "dgvMascotas";
             this.dgvMascotas.RowHeadersWidth = 51;
             this.dgvMascotas.RowTemplate.Height = 24;
-            this.dgvMascotas.Size = new System.Drawing.Size(1816, 875);
+            this.dgvMascotas.Size = new System.Drawing.Size(1920, 800);
             this.dgvMascotas.TabIndex = 0;
             // 
             // labelTitulo
             // 
+            this.labelTitulo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.labelTitulo.AutoSize = true;
             this.labelTitulo.Font = new System.Drawing.Font("Arial", 20.8F);
-            this.labelTitulo.Location = new System.Drawing.Point(755, 9);
+            this.labelTitulo.Location = new System.Drawing.Point(796, 45);
             this.labelTitulo.Name = "labelTitulo";
             this.labelTitulo.Size = new System.Drawing.Size(363, 40);
             this.labelTitulo.TabIndex = 1;
@@ -59,53 +62,65 @@
             // 
             // buttonBuscar
             // 
+            this.buttonBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonBuscar.BackColor = System.Drawing.SystemColors.HotTrack;
             this.buttonBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.8F);
-            this.buttonBuscar.Location = new System.Drawing.Point(129, 53);
+            this.buttonBuscar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonBuscar.Location = new System.Drawing.Point(84, 123);
             this.buttonBuscar.Name = "buttonBuscar";
-            this.buttonBuscar.Size = new System.Drawing.Size(106, 44);
+            this.buttonBuscar.Size = new System.Drawing.Size(106, 57);
             this.buttonBuscar.TabIndex = 3;
             this.buttonBuscar.Text = "Buscar";
-            this.buttonBuscar.UseVisualStyleBackColor = true;
+            this.buttonBuscar.UseVisualStyleBackColor = false;
             this.buttonBuscar.Click += new System.EventHandler(this.buttonBuscar_Click);
             // 
             // buttonAgregar
             // 
+            this.buttonAgregar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonAgregar.BackColor = System.Drawing.SystemColors.HotTrack;
             this.buttonAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.8F);
-            this.buttonAgregar.Location = new System.Drawing.Point(368, 53);
+            this.buttonAgregar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonAgregar.Location = new System.Drawing.Point(445, 123);
             this.buttonAgregar.Name = "buttonAgregar";
-            this.buttonAgregar.Size = new System.Drawing.Size(106, 44);
+            this.buttonAgregar.Size = new System.Drawing.Size(106, 57);
             this.buttonAgregar.TabIndex = 6;
             this.buttonAgregar.Text = "Agregar";
-            this.buttonAgregar.UseVisualStyleBackColor = true;
+            this.buttonAgregar.UseVisualStyleBackColor = false;
             this.buttonAgregar.Click += new System.EventHandler(this.buttonAgregar_Click);
             // 
             // buttonEliminar
             // 
+            this.buttonEliminar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonEliminar.BackColor = System.Drawing.SystemColors.HotTrack;
             this.buttonEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.8F);
-            this.buttonEliminar.Location = new System.Drawing.Point(1651, 53);
+            this.buttonEliminar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonEliminar.Location = new System.Drawing.Point(1705, 123);
             this.buttonEliminar.Name = "buttonEliminar";
-            this.buttonEliminar.Size = new System.Drawing.Size(106, 44);
+            this.buttonEliminar.Size = new System.Drawing.Size(106, 57);
             this.buttonEliminar.TabIndex = 5;
             this.buttonEliminar.Text = "Eliminar";
-            this.buttonEliminar.UseVisualStyleBackColor = true;
+            this.buttonEliminar.UseVisualStyleBackColor = false;
             this.buttonEliminar.Click += new System.EventHandler(this.buttonEliminar_Click);
             // 
             // buttonModificarForm
             // 
+            this.buttonModificarForm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonModificarForm.BackColor = System.Drawing.SystemColors.HotTrack;
             this.buttonModificarForm.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.8F);
-            this.buttonModificarForm.Location = new System.Drawing.Point(1436, 53);
+            this.buttonModificarForm.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonModificarForm.Location = new System.Drawing.Point(1316, 123);
             this.buttonModificarForm.Name = "buttonModificarForm";
-            this.buttonModificarForm.Size = new System.Drawing.Size(122, 44);
+            this.buttonModificarForm.Size = new System.Drawing.Size(122, 57);
             this.buttonModificarForm.TabIndex = 7;
             this.buttonModificarForm.Text = "Modificar";
-            this.buttonModificarForm.UseVisualStyleBackColor = true;
+            this.buttonModificarForm.UseVisualStyleBackColor = false;
             this.buttonModificarForm.Click += new System.EventHandler(this.buttonModificarForm_Click);
             // 
             // mascotaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1818, 633);
+            this.ClientSize = new System.Drawing.Size(1902, 1033);
             this.Controls.Add(this.buttonModificarForm);
             this.Controls.Add(this.buttonAgregar);
             this.Controls.Add(this.buttonEliminar);
@@ -114,7 +129,7 @@
             this.Controls.Add(this.dgvMascotas);
             this.MinimizeBox = false;
             this.Name = "mascotaForm";
-            this.Text = "Form1";
+            this.Text = "Base de datos de mascotas";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.mascotaForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMascotas)).EndInit();

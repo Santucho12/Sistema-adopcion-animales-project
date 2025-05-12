@@ -21,10 +21,6 @@ namespace data.models
             // constructor vacio
         }
 
-        public override string ToString()
-        {
-            return $"ID: {id}, Nombre: {nombre}, Especie: {especie}, Raza: {raza}, Edad: {edad}, Sexo: {sexo}, Descripción: {descripcion}, Estado de Adopción: {estadoAdopcion}, Fecha de Llegada: {fechaLlegada.ToShortDateString()}";
-        }
 
 
         // constructorr con parametros
@@ -39,6 +35,12 @@ namespace data.models
             this.descripcion = descripcion;
             this.estadoAdopcion = estadoAdopcion;
             this.fechaLlegada = fechaLlegada;
+        }
+
+
+        public override string ToString()
+        {
+            return $"ID: {id}, Nombre: {nombre}, Especie: {especie}, Raza: {raza}, Edad: {edad}, Sexo: {sexo}, Descripción: {descripcion}, Estado de Adopción: {estadoAdopcion}, Fecha de Llegada: {fechaLlegada.ToShortDateString()}";
         }
     }
 }

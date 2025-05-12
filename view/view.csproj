@@ -33,8 +33,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FontAwesome.Sharp, Version=6.6.0.0, Culture=neutral, PublicKeyToken=d16d1e4e568ec10f, processorArchitecture=MSIL">
+      <HintPath>..\packages\FontAwesome.Sharp.6.6.0\lib\net472\FontAwesome.Sharp.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -44,53 +50,54 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="buscarMascotaForm.cs">
+    <Compile Include="Mascota\buscarMascotaForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="buscarMascotaForm.Designer.cs">
+    <Compile Include="Mascota\buscarMascotaForm.Designer.cs">
       <DependentUpon>buscarMascotaForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="agregarMascotaForm.cs">
+    <Compile Include="Mascota\agregarMascotaForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="agregarMascotaForm.Designer.cs">
+    <Compile Include="Mascota\agregarMascotaForm.Designer.cs">
       <DependentUpon>agregarMascotaForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="eliminarMascotaForm.cs">
+    <Compile Include="Mascota\eliminarMascotaForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="eliminarMascotaForm.Designer.cs">
+    <Compile Include="Mascota\eliminarMascotaForm.Designer.cs">
       <DependentUpon>eliminarMascotaForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="modificarMascotaForm.cs">
+    <Compile Include="Mascota\modificarMascotaForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="modificarMascotaForm.Designer.cs">
+    <Compile Include="Mascota\modificarMascotaForm.Designer.cs">
       <DependentUpon>modificarMascotaForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="mascotaForm.cs">
+    <Compile Include="Mascota\mascotaForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="mascotaForm.Designer.cs">
+    <Compile Include="Mascota\mascotaForm.Designer.cs">
       <DependentUpon>mascotaForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="agregarMascotaForm.resx">
+    <EmbeddedResource Include="Mascota\agregarMascotaForm.resx">
       <DependentUpon>agregarMascotaForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="buscarMascotaForm.resx">
+    <EmbeddedResource Include="Mascota\buscarMascotaForm.resx">
       <DependentUpon>buscarMascotaForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="eliminarMascotaForm.resx">
+    <EmbeddedResource Include="Mascota\eliminarMascotaForm.resx">
       <DependentUpon>eliminarMascotaForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="modificarMascotaForm.resx">
+    <EmbeddedResource Include="Mascota\modificarMascotaForm.resx">
       <DependentUpon>modificarMascotaForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="mascotaForm.resx">
+    <EmbeddedResource Include="Mascota\mascotaForm.resx">
       <DependentUpon>mascotaForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -102,6 +109,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="app.config" />
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
