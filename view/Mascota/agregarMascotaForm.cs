@@ -35,7 +35,7 @@ namespace view
                 nuevaMascota.descripcion = textBoxAgregarDescripcion.Text;
 
                 MascotaPresenter listaMascotas = new MascotaPresenter();
-                listaMascotas.AgregarMascota(nuevaMascota);
+                listaMascotas.agregarMascota(nuevaMascota);
 
                 MessageBox.Show("Mascota agregada correctamente.");
 
@@ -48,5 +48,7 @@ namespace view
                 MessageBox.Show("Error al Agregar mascota: " + ex.Message);
             }
         }
+
+       
     }
 }

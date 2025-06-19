@@ -43,6 +43,7 @@
             this.labelFormbuscarMascotaTitulo.Size = new System.Drawing.Size(252, 27);
             this.labelFormbuscarMascotaTitulo.TabIndex = 0;
             this.labelFormbuscarMascotaTitulo.Text = "Buscar mascota por id";
+            this.labelFormbuscarMascotaTitulo.Click += new System.EventHandler(this.labelFormbuscarMascotaTitulo_Click);
             // 
             // labelBuscarMascotaFormId
             // 
@@ -52,6 +53,7 @@
             this.labelBuscarMascotaFormId.Size = new System.Drawing.Size(66, 16);
             this.labelBuscarMascotaFormId.TabIndex = 1;
             this.labelBuscarMascotaFormId.Text = "Ingrese id";
+            this.labelBuscarMascotaFormId.Click += new System.EventHandler(this.labelBuscarMascotaFormId_Click);
             // 
             // textBoxBuscarMascotaForm
             // 
@@ -59,6 +61,7 @@
             this.textBoxBuscarMascotaForm.Name = "textBoxBuscarMascotaForm";
             this.textBoxBuscarMascotaForm.Size = new System.Drawing.Size(145, 22);
             this.textBoxBuscarMascotaForm.TabIndex = 2;
+            this.textBoxBuscarMascotaForm.TextChanged += new System.EventHandler(this.textBoxBuscarMascotaForm_TextChanged);
             // 
             // buttonBuscarMascotaForm
             // 

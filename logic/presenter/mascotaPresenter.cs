@@ -18,36 +18,36 @@ namespace logic.presenter
         }
 
         // Listar todas las mascotas
-        public List<Mascota> ObtenerMascotas()
+        public List<Mascota> listarMascotas()
         {       //invocta al metodo listarMascotas de repositorio
-            return repoMascota.listarMascotas();
+            return repoMascota.listarMascotasModels();
         }
 
         // Agregar nueva mascota 
-        public void AgregarMascota(Mascota nuevaMascota)
+        public void agregarMascota(Mascota nuevaMascota)
         {   //invoca al metodoto del repo
-            repoMascota.AgregarMascota(nuevaMascota);
+            repoMascota.AgregarMascotaModels(nuevaMascota);
         }
 
         // modificar nueva mascota 
-        public void ModificarMascota(Mascota nuevaMascota)
+        public void modificarMascota(Mascota nuevaMascota)
         {   //invoca al metodoto del repo
-            repoMascota.modificarMascota(nuevaMascota);
+            repoMascota.modificarMascotaModels(nuevaMascota);
         }
 
 
 
         // Eliminar mascota por ID
-        public void EliminarMascota(int id)
+        public void eliminarMascota(int id)
         {       //invoca del repo
-            repoMascota.eliminarMascota(id);
+            repoMascota.eliminarMascotaModels(id);
         }
 
         // Buscar mascota por ID
-        public Mascota BuscarMascotaPorId(int id)
+        public Mascota buscarMascotaPorId(int id)
         {
             //invoca del repo
-            return repoMascota.buscarPorId(id);
+            return repoMascota.buscarPorIdModels(id);
         }
     }
 }

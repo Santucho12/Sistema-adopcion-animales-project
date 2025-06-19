@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using logic.presenter;
 using data.models;
 using System.Drawing;
+using view.Home;
 
 namespace view
 {
@@ -46,7 +47,7 @@ namespace view
                     MascotaPresenter mascotaPresenter = new MascotaPresenter();
 
                     // Llamar a BuscarMascotaPorId con el ID ingresado
-                    Mascota mascota = mascotaPresenter.BuscarMascotaPorId(id);
+                    Mascota mascota = mascotaPresenter.buscarMascotaPorId(id);
 
                     // Si la mascota se encuentra, mostrar sus datos
                     if (mascota != null)
@@ -77,7 +78,7 @@ namespace view
 
         private void buttonEliminar_Click(object sender, EventArgs e)
         {
-            eliminarMascotaForm eliminarMascota = new eliminarMascotaForm();
+            eliminarMascotaForm eliminarMascota = new eliminarMascotaForm(presenter);
 
             eliminarMascota.FormClosed += (s, args) =>
             {
@@ -133,7 +134,7 @@ namespace view
                 System.Reflection.BindingFlags.SetProperty,
                 null, dgvMascotas, new object[] { true });
 
-            List<Mascota> mascotas = presenter.ObtenerMascotas();
+            List<Mascota> mascotas = presenter.listarMascotas();
             dgvMascotas.DataSource = mascotas;
 
             dgvMascotas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
@@ -190,8 +191,17 @@ namespace view
 
         }
 
+        private void buttonRegresar_Click(object sender, EventArgs e)
+        {
+
+            HomeForm Menu = new HomeForm();
 
 
+            // Actualiza el DataGridView cuando se cierre el formulario de Agregar
+
+
+            Menu.ShowDialog();
+        }
     }
 
 }

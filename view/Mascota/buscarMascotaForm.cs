@@ -24,5 +24,20 @@ namespace view
             this.DialogResult = DialogResult.OK; // Indicás que todo fue correcto
             this.Close(); // Cerrás el formulario
         }
+
+        private void textBoxBuscarMascotaForm_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelBuscarMascotaFormId_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelFormbuscarMascotaTitulo_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

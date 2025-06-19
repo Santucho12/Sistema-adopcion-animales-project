@@ -34,6 +34,7 @@
             this.buttonAgregar = new System.Windows.Forms.Button();
             this.buttonEliminar = new System.Windows.Forms.Button();
             this.buttonModificarForm = new System.Windows.Forms.Button();
+            this.buttonRegresar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMascotas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -116,11 +117,26 @@
             this.buttonModificarForm.UseVisualStyleBackColor = false;
             this.buttonModificarForm.Click += new System.EventHandler(this.buttonModificarForm_Click);
             // 
+            // buttonRegresar
+            // 
+            this.buttonRegresar.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.buttonRegresar.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.buttonRegresar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.8F);
+            this.buttonRegresar.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.buttonRegresar.Location = new System.Drawing.Point(12, 45);
+            this.buttonRegresar.Name = "buttonRegresar";
+            this.buttonRegresar.Size = new System.Drawing.Size(132, 40);
+            this.buttonRegresar.TabIndex = 8;
+            this.buttonRegresar.Text = "Regresar";
+            this.buttonRegresar.UseVisualStyleBackColor = false;
+            this.buttonRegresar.Click += new System.EventHandler(this.buttonRegresar_Click);
+            // 
             // mascotaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1902, 1033);
+            this.Controls.Add(this.buttonRegresar);
             this.Controls.Add(this.buttonModificarForm);
             this.Controls.Add(this.buttonAgregar);
             this.Controls.Add(this.buttonEliminar);
@@ -146,6 +162,7 @@
         private System.Windows.Forms.Button buttonAgregar;
         private System.Windows.Forms.Button buttonEliminar;
         private System.Windows.Forms.Button buttonModificarForm;
+        private System.Windows.Forms.Button buttonRegresar;
     }
 }
 

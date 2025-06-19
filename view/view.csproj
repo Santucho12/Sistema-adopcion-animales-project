@@ -53,6 +53,42 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Adoptante\adoptanteForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Adoptante\adoptanteForm.Designer.cs">
+      <DependentUpon>adoptanteForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Adoptante\agregarAdoptanteForm1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Adoptante\agregarAdoptanteForm1.Designer.cs">
+      <DependentUpon>agregarAdoptanteForm1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Adoptante\buscarAdoptanteForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Adoptante\buscarAdoptanteForm.Designer.cs">
+      <DependentUpon>buscarAdoptanteForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Adoptante\eliminarAdoptanteForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Adoptante\eliminarAdoptanteForm.Designer.cs">
+      <DependentUpon>eliminarAdoptanteForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Adoptante\modificarAdoptanteForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Adoptante\modificarAdoptanteForm.Designer.cs">
+      <DependentUpon>modificarAdoptanteForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Home\HomeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Home\HomeForm.Designer.cs">
+      <DependentUpon>HomeForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Mascota\buscarMascotaForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,6 +121,54 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Solicitud\agregarSolicitudForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Solicitud\agregarSolicitudForm.Designer.cs">
+      <DependentUpon>agregarSolicitudForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Solicitud\buscarSolicitudForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Solicitud\buscarSolicitudForm.Designer.cs">
+      <DependentUpon>buscarSolicitudForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Solicitud\eliminarSolicitudForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Solicitud\eliminarSolicitudForm.Designer.cs">
+      <DependentUpon>eliminarSolicitudForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Solicitud\modificarSolicitudForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Solicitud\modificarSolicitudForm.Designer.cs">
+      <DependentUpon>modificarSolicitudForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Solicitud\SolicitudForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Solicitud\SolicitudForm.Designer.cs">
+      <DependentUpon>SolicitudForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Adoptante\adoptanteForm.resx">
+      <DependentUpon>adoptanteForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Adoptante\agregarAdoptanteForm1.resx">
+      <DependentUpon>agregarAdoptanteForm1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Adoptante\buscarAdoptanteForm.resx">
+      <DependentUpon>buscarAdoptanteForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Adoptante\eliminarAdoptanteForm.resx">
+      <DependentUpon>eliminarAdoptanteForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Adoptante\modificarAdoptanteForm.resx">
+      <DependentUpon>modificarAdoptanteForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Home\HomeForm.resx">
+      <DependentUpon>HomeForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Mascota\agregarMascotaForm.resx">
       <DependentUpon>agregarMascotaForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -109,6 +193,18 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Solicitud\agregarSolicitudForm.resx">
+      <DependentUpon>agregarSolicitudForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Solicitud\buscarSolicitudForm.resx">
+      <DependentUpon>buscarSolicitudForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Solicitud\eliminarSolicitudForm.resx">
+      <DependentUpon>eliminarSolicitudForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Solicitud\SolicitudForm.resx">
+      <DependentUpon>SolicitudForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="app.config" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

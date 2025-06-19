@@ -1,18 +1,27 @@
-﻿using System;
+﻿using logic.presenter;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
-using logic.presenter;
 
-namespace view
+namespace view.Solicitud
 {
-    public partial class eliminarMascotaForm : Form
-    {
-        private MascotaPresenter presenter;
-
-        // Constructor que recibe la instancia del presenter
-        public eliminarMascotaForm(MascotaPresenter presenter)
+    public partial class eliminarSolicitudForm: Form
+    {   
+        private SolicitudPresenter presenter;
+        public eliminarSolicitudForm(SolicitudPresenter presenter)
         {
             InitializeComponent();
-            this.presenter = presenter;
+            this.presenter = presenter;   
+        }
+
+        public eliminarSolicitudForm()
+        {
         }
 
         private void buttonEliminar_Click(object sender, EventArgs e)
@@ -24,7 +33,7 @@ namespace view
             {
                 try
                 {
-                    presenter.eliminarMascota(id);
+                    presenter.EliminarSolicitud(id);
                     MessageBox.Show("Mascota eliminada correctamente.");
                     this.Close(); // Esto permite refrescar el DataGridView en el formulario principal
                 }
@@ -41,17 +50,17 @@ namespace view
 
         private void textBoxIngreseId_TextChanged(object sender, EventArgs e)
         {
-            // Evento vacío si no se necesita lógica adicional
+
         }
 
         private void labelEliminarTitulo_Click(object sender, EventArgs e)
         {
-            // Evento vacío si no se necesita lógica adicional
+
         }
 
         private void labelEliminarId_Click(object sender, EventArgs e)
         {
-            // Evento vacío si no se necesita lógica adicional
+
         }
     }
 }

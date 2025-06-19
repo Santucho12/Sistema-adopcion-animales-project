@@ -34,7 +34,7 @@ namespace view
                 MascotaPresenter presenter = new MascotaPresenter();
 
                 // Buscar la mascota con el ID proporcionado
-                Mascota mascotaExistente = presenter.BuscarMascotaPorId(mascotaId);
+                Mascota mascotaExistente = presenter.buscarMascotaPorId(mascotaId);
 
                 if (mascotaExistente != null)
                 {
@@ -49,7 +49,7 @@ namespace view
                     mascotaExistente.descripcion = textBoxModificarDescripcion.Text;
 
                     // Llamar al método para actualizar la mascota en la base de datos o lista
-                    presenter.ModificarMascota(mascotaExistente);
+                    presenter.modificarMascota(mascotaExistente);
 
                     // Confirmación
                     MessageBox.Show("Mascota modificada correctamente.");

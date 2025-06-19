@@ -41,7 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="presenter\mascotaPresenter.cs" />
+    <Compile Include="presenter\AdoptantePresenter.cs" />
+    <Compile Include="presenter\MascotaPresenter.cs" />
+    <Compile Include="presenter\SolicitudPresenter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
