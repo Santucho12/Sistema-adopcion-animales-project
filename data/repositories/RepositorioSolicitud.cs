@@ -121,7 +121,16 @@ namespace data.repositories
             Solicitud solicitud = null;
             try
             {
-                datos.setearConsulta("SELECT * FROM Solicitudes WHERE SolicitudId = @id");
+                datos.setearConsulta(
+     @"SELECT s.SolicitudId, s.MascotaId, m.Nombre AS NombreMascota,
+             s.AdoptanteId, a.Nombre AS NombreAdoptante,
+             s.FechaSolicitud, s.Estado
+      FROM Solicitudes s
+      JOIN Mascotas m ON s.MascotaId = m.Id
+      JOIN Adoptantes a ON s.AdoptanteId = a.AdoptanteId
+      WHERE s.SolicitudId = @id");
+
+
                 datos.comando.Parameters.AddWithValue("@id", id);
                 datos.ejecutarLectura();
                 if (datos.Lector.Read())
@@ -131,21 +140,28 @@ namespace data.repositories
                         SolicitudId = (int)datos.Lector["SolicitudId"],
                         Mascota = new Mascota
                         {
-                            id = (int)datos.Lector["MascotaId"]
+                            id = (int)datos.Lector["MascotaId"],
+                            nombre = datos.Lector["NombreMascota"].ToString()
                         },
                         Adoptante = new Adoptante
                         {
-                            id = (int)datos.Lector["AdoptanteId"]
+                            id = (int)datos.Lector["AdoptanteId"],
+                            nombre = datos.Lector["NombreAdoptante"].ToString()
                         },
                         FechaSolicitud = (DateTime)datos.Lector["FechaSolicitud"],
-                        Estado = (string)datos.Lector["Estado"]
+                        Estado = datos.Lector["Estado"].ToString()
                     };
+
                 }
             }
-            catch (Exception ex)
+         
+               catch (Exception ex)
             {
-                throw ex;
+                Console.WriteLine("Error en BuscarPorIDModel: " + ex.Message);
+                throw; // O elimina esta línea si solo quieres ver el error sin interrumpir
             }
+
+     
             finally
             {
                 datos.cerrarConexion();

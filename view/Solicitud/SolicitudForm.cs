@@ -1,25 +1,28 @@
-﻿using System;
+﻿using data.models;
+using logic.presenter;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
-using logic.presenter;
 using view.Home;
-using data.models; // Importa el modelo
 
 namespace view.Solicitud
 {
-    public partial class SolicitudForm : Form
+    public partial class solicitudForm : Form
     {
         private SolicitudPresenter presenter;
 
-        public SolicitudForm()
+        public solicitudForm()
         {
             InitializeComponent();
+
             this.WindowState = FormWindowState.Maximized;
+            this.StartPosition = FormStartPosition.CenterScreen;
+
             presenter = new SolicitudPresenter();
         }
 
-        private void SolicitudForm_Load(object sender, EventArgs e)
+        private void solicitudForm_Load(object sender, EventArgs e)
         {
             recargarDgv();
         }
@@ -38,33 +41,45 @@ namespace view.Solicitud
 
                     if (solicitud != null)
                     {
-                        MessageBox.Show($"Solicitud encontrada: {solicitud.Estado}, {solicitud.FechaSolicitud.ToShortDateString()}");
+                        string mensaje = "Solicitud encontrada:" + Environment.NewLine +
+                                         "ID: " + solicitud.SolicitudId + Environment.NewLine +
+                                         "Mascota: " + (solicitud.Mascota != null ? solicitud.Mascota.nombre : "N/A") + Environment.NewLine +
+                                         "Adoptante: " + (solicitud.Adoptante != null ? solicitud.Adoptante.nombre : "N/A") + Environment.NewLine +
+                                         "Fecha: " + solicitud.FechaSolicitud.ToShortDateString() + Environment.NewLine +
+                                         "Estado: " + solicitud.Estado;
+                        MessageBox.Show(mensaje, "Resultado de búsqueda", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
                     {
                         MessageBox.Show("Solicitud no encontrada.");
                     }
                 }
+                else
+                {
+                    MessageBox.Show("ID inválido.");
+                }
             }
         }
 
         private void buttonAgregar_Click(object sender, EventArgs e)
         {
-            agregarSolicitudForm agregarSolicitud = new agregarSolicitudForm();
-            agregarSolicitud.FormClosed += (s, args) => recargarDgv();
-            agregarSolicitud.ShowDialog();
-        }
-
-        private void buttonModificar_Click(object sender, EventArgs e)
-        {
-            // Código comentado. Se puede revisar si querés activarlo.
+            // Implementar lógica para agregar solicitud
         }
 
         private void buttonEliminar_Click(object sender, EventArgs e)
         {
-            eliminarSolicitudForm eliminarSolicitud = new eliminarSolicitudForm(presenter);
-            eliminarSolicitud.FormClosed += (s, args) => recargarDgv();
-            eliminarSolicitud.ShowDialog();
+            // Implementar lógica para eliminar solicitud
+        }
+
+        private void buttonModificarForm_Click(object sender, EventArgs e)
+        {
+            // Implementar lógica para modificar solicitud
+        }
+
+        private void buttonRegresar_Click(object sender, EventArgs e)
+        {
+            HomeForm Menu = new HomeForm();
+            Menu.ShowDialog();
         }
 
         private void recargarDgv()
@@ -76,8 +91,49 @@ namespace view.Solicitud
                 null, dgvSolicitudes, new object[] { true });
 
             List<data.models.Solicitud> solicitudes = presenter.ListarSolicitudes();
+
+            dgvSolicitudes.AutoGenerateColumns = false;
+            dgvSolicitudes.Columns.Clear();
+
+            // Columnas personalizadas
+            dgvSolicitudes.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                HeaderText = "Solicitud ID",
+                DataPropertyName = "SolicitudId",
+                Name = "SolicitudId"
+            });
+
+            dgvSolicitudes.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                HeaderText = "Mascota",
+                DataPropertyName = "MascotaId",
+                Name = "MascotaId"
+            });
+
+            dgvSolicitudes.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                HeaderText = "Adoptante",
+                DataPropertyName = "AdoptanteId",
+                Name = "AdoptanteId"
+            });
+
+            dgvSolicitudes.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                HeaderText = "Fecha Solicitud",
+                DataPropertyName = "FechaSolicitud",
+                Name = "FechaSolicitud"
+            });
+
+            dgvSolicitudes.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                HeaderText = "Estado",
+                DataPropertyName = "Estado",
+                Name = "Estado"
+            });
+
             dgvSolicitudes.DataSource = solicitudes;
 
+            // Estilos visuales
             dgvSolicitudes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvSolicitudes.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dgvSolicitudes.DefaultCellStyle.Font = new Font("Segoe UI", 10F);
@@ -96,25 +152,8 @@ namespace view.Solicitud
             dgvSolicitudes.CellBorderStyle = DataGridViewCellBorderStyle.None;
             dgvSolicitudes.GridColor = Color.LightGray;
             dgvSolicitudes.RowHeadersVisible = false;
-
             dgvSolicitudes.RowsDefaultCellStyle.BackColor = Color.White;
             dgvSolicitudes.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(240, 240, 240);
-
-            var colDescripcion = dgvSolicitudes.Columns["descripcion"];
-            var colTipo = dgvSolicitudes.Columns["tipo"];
-            var colFecha = dgvSolicitudes.Columns["fecha"];
-            var colId = dgvSolicitudes.Columns["id"];
-
-            if (colDescripcion != null)
-            {
-                colDescripcion.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-                colDescripcion.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
-                colDescripcion.DefaultCellStyle.Padding = new Padding(16, 4, 16, 4);
-                colTipo.Width = 130;
-                colFecha.Width = 130;
-                colId.Width = 90;
-                colDescripcion.Width = 290;
-            }
 
             foreach (DataGridViewRow row in dgvSolicitudes.Rows)
             {
@@ -124,12 +163,6 @@ namespace view.Solicitud
             }
 
             dgvSolicitudes.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-        }
-
-        private void buttonRegresar_Click(object sender, EventArgs e)
-        {
-            HomeForm Menu = new HomeForm();
-            Menu.ShowDialog();
         }
     }
 }

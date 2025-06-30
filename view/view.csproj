@@ -145,11 +145,11 @@
     <Compile Include="Solicitud\modificarSolicitudForm.Designer.cs">
       <DependentUpon>modificarSolicitudForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Solicitud\SolicitudForm.cs">
+    <Compile Include="Solicitud\solicitudForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Solicitud\SolicitudForm.Designer.cs">
-      <DependentUpon>SolicitudForm.cs</DependentUpon>
+    <Compile Include="Solicitud\solicitudForm.Designer.cs">
+      <DependentUpon>solicitudForm.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Adoptante\adoptanteForm.resx">
       <DependentUpon>adoptanteForm.cs</DependentUpon>
@@ -202,8 +202,8 @@
     <EmbeddedResource Include="Solicitud\eliminarSolicitudForm.resx">
       <DependentUpon>eliminarSolicitudForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Solicitud\SolicitudForm.resx">
-      <DependentUpon>SolicitudForm.cs</DependentUpon>
+    <EmbeddedResource Include="Solicitud\solicitudForm.resx">
+      <DependentUpon>solicitudForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
     <None Include="packages.config" />

@@ -1,108 +1,100 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+// Asegúrate que el namespace de SolicitudForm es view.Solicitud y que está en el proyecto referenciado
 using view.Solicitud;
 
 namespace view.Home
 {
     public partial class HomeForm : Form
     {
-        private Label lblTitulo;
-        private Label lblSubtitulo;
-        private TableLayoutPanel tableLayoutPanel;
+        private Button buttonVerMascotas;
+        private Button buttonVerAdoptantes;
+        private Button buttonVerSolicitudes;
+        private Label titulo;
+        private Label subtitulo;
+        private Label footer;
 
         public HomeForm()
         {
             InitializeComponent();
+            this.Text = "🐾 Sistema de adopción de mascotas";
             this.WindowState = FormWindowState.Maximized;
+            this.BackColor = Color.FromArgb(245, 245, 245); // Gris claro
             this.StartPosition = FormStartPosition.CenterScreen;
-            this.BackColor = Color.White;
+            InicializarControles();
 
-            InicializarComponentesPersonalizados();
+            // Redibujar todo cuando se cambia el tamaño
+            this.Resize += (s, e) =>
+            {
+                Controls.Clear();
+                InicializarControles();
+            };
         }
 
-        private void InicializarComponentesPersonalizados()
+        private void InicializarControles()
         {
-            // Fuente común
-            Font fuenteBoton = new Font("Segoe UI", 12F, FontStyle.Bold);
-            Font fuenteTitulo = new Font("Segoe UI", 20F, FontStyle.Bold);
-            Font fuenteSubtitulo = new Font("Segoe UI", 12F, FontStyle.Regular);
-
             // Título
-            lblTitulo = new Label
-            {
-                Text = "Bienvenido al sistema para adoptar mascotas",
-                Font = fuenteTitulo,
-                ForeColor = Color.Black,
-                AutoSize = true,
-                Anchor = AnchorStyles.None,
-                TextAlign = ContentAlignment.MiddleCenter
-            };
+            titulo = new Label();
+            titulo.Text = "Bienvenido al sistema para adoptar mascotas";
+            titulo.Font = new Font("Segoe UI", 24, FontStyle.Bold);
+            titulo.ForeColor = Color.FromArgb(30, 30, 30);
+            titulo.AutoSize = true;
+            this.Controls.Add(titulo);
+
+            // Centrar título
+            titulo.Location = new Point((this.ClientSize.Width - titulo.Width) / 2, 130);
 
             // Subtítulo
-            lblSubtitulo = new Label
-            {
-                Text = "Elegí una opción para comenzar",
-                Font = fuenteSubtitulo,
-                ForeColor = Color.DimGray,
-                AutoSize = true,
-                Anchor = AnchorStyles.None,
-                TextAlign = ContentAlignment.MiddleCenter
-            };
+            subtitulo = new Label();
+            subtitulo.Text = "Utilizá los botones para administrar mascotas, adoptantes y solicitudes.";
+            subtitulo.Font = new Font("Segoe UI", 12, FontStyle.Regular);
+            subtitulo.ForeColor = Color.FromArgb(80, 80, 80);
+            subtitulo.AutoSize = true;
+            this.Controls.Add(subtitulo);
 
-            // Layout principal
-            tableLayoutPanel = new TableLayoutPanel
-            {
-                Dock = DockStyle.Fill,
-                ColumnCount = 1,
-                RowCount = 5,
-                BackColor = Color.White
-            };
+            // Centrar subtítulo justo debajo del título
+            subtitulo.Location = new Point((this.ClientSize.Width - subtitulo.Width) / 2, titulo.Bottom + 25);
 
-            tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 25F)); // Espacio top
-            tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.AutoSize)); // Título
-            tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.AutoSize)); // Subtítulo
-            tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 30F)); // Botones
-            tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 45F)); // Espacio bottom
+            // Estilo común de botones
+            Size botonSize = new Size(180, 60);
+            Font fuenteBoton = new Font("Segoe UI", 12, FontStyle.Regular);
+            Color colorBoton = Color.FromArgb(33, 150, 243);
 
-            tableLayoutPanel.Controls.Add(lblTitulo, 0, 1);
-            tableLayoutPanel.Controls.Add(lblSubtitulo, 0, 2);
+            // Separación entre botones y posición inicial
+            int separacion = 40;
+            int totalAnchoBotones = (botonSize.Width * 3) + (separacion * 2);
+            int startX = (this.ClientSize.Width - totalAnchoBotones) / 2;
+            int startY = subtitulo.Bottom + 90;
 
-            // Panel horizontal para los botones
-            FlowLayoutPanel panelBotones = new FlowLayoutPanel
-            {
-                Dock = DockStyle.Fill,
-                FlowDirection = FlowDirection.LeftToRight,
-                Anchor = AnchorStyles.None,
-                AutoSize = true,
-                WrapContents = false,
-                Padding = new Padding(10),
-                Margin = new Padding(0),
-            };
+            // Botones
+            buttonVerMascotas = CrearBoton("🐶 Ver Mascotas", new Point(startX, startY), botonSize, fuenteBoton, colorBoton);
+            buttonVerAdoptantes = CrearBoton("👤 Ver Adoptantes", new Point(startX + botonSize.Width + separacion, startY), botonSize, fuenteBoton, colorBoton);
+            buttonVerSolicitudes = CrearBoton("📄 Ver Solicitudes", new Point(startX + (botonSize.Width + separacion) * 2, startY), botonSize, fuenteBoton, colorBoton);
 
+            // Eventos
+            buttonVerMascotas.Click += buttonVerMascotas_Click;
+            buttonVerAdoptantes.Click += buttonVerAdoptantes_Click;
+            buttonVerSolicitudes.Click += buttonVerSolicitudes_Click;
 
-            tableLayoutPanel.Controls.Add(panelBotones, 0, 3);
-            this.Controls.Add(tableLayoutPanel);
+            // Agregar botones al formulario
+            this.Controls.Add(buttonVerMascotas);
+            this.Controls.Add(buttonVerAdoptantes);
+            this.Controls.Add(buttonVerSolicitudes);
         }
 
-        private Button CrearBoton(string texto, Font fuente, EventHandler eventoClick)
+        private Button CrearBoton(string texto, Point ubicacion, Size size, Font fuente, Color colorFondo)
         {
-            Button boton = new Button
-            {
-                Text = texto,
-                Font = fuente,
-                BackColor = Color.FromArgb(0, 122, 204),
-                ForeColor = Color.White,
-                FlatStyle = FlatStyle.Flat,
-                Width = 200,
-                Height = 60,
-                Margin = new Padding(20),
-                Cursor = Cursors.Hand
-            };
-
+            Button boton = new Button();
+            boton.Text = texto;
+            boton.Font = fuente;
+            boton.Size = size;
+            boton.Location = ubicacion;
+            boton.BackColor = colorFondo;
+            boton.ForeColor = Color.White;
+            boton.FlatStyle = FlatStyle.Flat;
             boton.FlatAppearance.BorderSize = 0;
-            boton.Click += eventoClick;
-
+            boton.Cursor = Cursors.Hand;
             return boton;
         }
 
@@ -120,7 +112,8 @@ namespace view.Home
 
         private void buttonVerSolicitudes_Click(object sender, EventArgs e)
         {
-            SolicitudForm verSolicitudes = new SolicitudForm();
+            // Aquí debe existir la clase SolicitudForm en view.Solicitud
+            solicitudForm verSolicitudes = new solicitudForm();
             verSolicitudes.ShowDialog();
         }
     }

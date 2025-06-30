@@ -19,6 +19,8 @@ namespace data.models
             // Constructor vacío
         }
 
+        public int MascotaId => Mascota?.id ?? 0;
+        public int AdoptanteId => Adoptante?.id ?? 0;
         public Solicitud(int solicitudId, Mascota mascota, Adoptante adoptante, DateTime fechaSolicitud, string estado)
         {
             this.SolicitudId = solicitudId;
@@ -34,3 +36,4 @@ namespace data.models
         }
     }
 }
+    
